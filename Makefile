@@ -190,6 +190,11 @@ clean: cleanrpm
 	-rm -rf $(PackageObjectDir)
 	-rm -rf $(PackageLibraryDir)
 
+.PHONY: doc cleandoc
+
+doc:
+	$(MAKE) -C doc
+
 cleandoc:
 	@echo "TO DO"
 
