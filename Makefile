@@ -191,12 +191,11 @@ clean: cleanrpm
 	-rm -rf $(PackageLibraryDir)
 
 .PHONY: doc cleandoc
-
 doc:
-	$(MAKE) -C doc
+	$(MAKE) -C $@ docs
 
 cleandoc:
-	@echo "TO DO"
+	$(MAKE) -C doc cleanall
 
 BUILD_VERSION:=$(BUILD_VERSION).$(GEM_VARIANT)
 
