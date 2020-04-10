@@ -28,7 +28,7 @@ docs: html
 
 .PHONY: doxygen doxyrest
 doxygen:
-	cp ctp7_modules.doxygen ctp7_modules.cfg
+	cp ctp7_modules.cfg.in ctp7_modules.cfg
 	perl -pi -e "s|__GIT_VERSION__|$(GIT_VERSION)|g" ctp7_modules.cfg
 	doxygen ctp7_modules.cfg
 
