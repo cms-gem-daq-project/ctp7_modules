@@ -178,7 +178,7 @@ html_static_path = ["_static"]
 # or fully qualified paths (eg. https://...)
 html_css_files = [
     # "{}/css/rtd-custom.css".format(os.getenv("GEM_DOCS_URL")),
-    "css/custom.css",
+    # "css/custom.css",
 ]
 
 # Custom JavaScript
