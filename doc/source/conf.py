@@ -193,12 +193,4 @@ intersphinx_mapping = {
     "vfatqc": (os.getenv("EOS_SITE_URL") + "/docs/api/vfatqc/latest", None,),
     "reg_utils": (os.getenv("EOS_SITE_URL") + "/docs/api/reg_utils/latest", None,),
     "xhal": (os.getenv("EOS_SITE_URL") + "/docs/api/xhal/latest", None,),
-    "reg_interface_gem": (
-        os.getenv("EOS_SITE_URL") + "/docs/api/reg_interface_gem/latest",
-        None,
-    ),
-    "reedmuller-c": (
-        os.getenv("EOS_SITE_URL") + "/docs/api/reedmuller-c/latest",
-        None,
-    ),
 }
