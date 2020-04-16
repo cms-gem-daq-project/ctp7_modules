@@ -193,4 +193,6 @@ clean: cleanrpm
 cleandoc:
 	@echo "TO DO"
 
+BUILD_VERSION:=$(BUILD_VERSION).$(GEM_VARIANT)
+
 -include $(Dependencies)
