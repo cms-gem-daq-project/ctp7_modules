@@ -73,36 +73,40 @@ extensions = [
 
 if os.getenv("USE_DOXYREST"):
     extensions += ["doxyrest", "cpplexer"]
-else:
-    extensions += ["breathe", "exhale"]
-    breathe_projects = {
-        "CTP7 Modules": "../exhalebuild/xml/",
-    }
 
-    breathe_default_project = "CTP7 Modules"
+extensions += ["breathe", "exhale"]
+breathe_projects = {
+    "CTP7 Modules": "../exhalebuild/xml/",
+}
 
-    # Setup the exhale extension
-    exhale_args = {
-        # These arguments are required
-        "containmentFolder": "./exhale-api",
-        "rootFileName": "api.rst",
-        "rootFileTitle": "CTP7 modules API documentation",
-        "doxygenStripFromPath": "..",
-        # Suggested optional arguments
-        "createTreeView": True,
-        # TIP: if using the sphinx-bootstrap-theme, you need
-        "treeViewIsBootstrap": True,
-        "exhaleExecutesDoxygen": True,
-        "exhaleDoxygenStdin": """
+breathe_default_project = "CTP7 Modules"
+
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    "containmentFolder": "./exhale-api",
+    "rootFileName": "api.rst",
+    "rootFileTitle": "CTP7 modules API documentation",
+    "doxygenStripFromPath": "{}".format(os.path.abspath("../../")),
+    # Suggested optional arguments
+    # "lexerMapping": {r".*\.md": "md",},
+    "createTreeView": True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin": """
 PROJECT_NAME = CTP7 Modules
 PROJECT_NUMBER = {}
-INPUT = ../../include \
+USE_MDFILE_AS_MAINPAGE = ../../README.md
+MARKDOWN_SUPPORT = YES
+INPUT = ../../README.md \
+        ../../include \
         ../../src
 PREDEFINED+= DOXYGEN_IGNORE_THIS
 """.format(
-            os.popen("git describe --abbrev=6 --dirty --always --tags").read().strip()
-        ),
-    }
+        os.popen("git describe --abbrev=6 --dirty --always --tags").read().strip()
+    ),
+}
 
 # Tell sphinx what the primary language being documented is.
 primary_domain = "cpp"
